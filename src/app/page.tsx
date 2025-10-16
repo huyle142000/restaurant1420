@@ -21,6 +21,7 @@ export default async function Home() {
   const t = i18n.getFixedT("vi");
 
   useEffect(() => {
+    console.log(123123123123)
     logEvent("message_sent", {
       content_length: 1,
       platform: 12321321,
