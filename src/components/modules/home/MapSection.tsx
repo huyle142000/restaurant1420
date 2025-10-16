@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { logEvent } from "@/lib/ga4";
 import React, { useEffect } from "react";
 
@@ -12,6 +12,7 @@ const MapSection = (props: Props) => {
       platform: 12321321,
       device: "destop",
       has_conversation: `abcd`,
+      message: "HUY CUte",
     });
   }, []);
   return (
