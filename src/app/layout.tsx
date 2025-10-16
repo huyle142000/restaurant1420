@@ -10,6 +10,7 @@ import {
   Roboto,
 } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 export const roboto = Roboto({
   subsets: ["latin"],
@@ -58,6 +59,20 @@ export default function RootLayout({
         <LanguageLoader />
         <Toaster position="top-right" reverseOrder={false} />
         {children}
+
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-3DK4DTG5KH"
+        ></Script>
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-3DK4DTG5KH');
+              `}
+        </Script>
       </body>
     </html>
   );
