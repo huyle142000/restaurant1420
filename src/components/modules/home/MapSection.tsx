@@ -12,7 +12,7 @@ const MapSection = (props: Props) => {
       platform: 12321321,
       device: "destop",
       has_conversation: `abcd`,
-      message: "HUY CUte",
+      message: "HUY CUte siêu cấp vip pro maxxxxxxxxxxxxxxxx, quá đẹp trai, quá cool ngầu luôn á",
     });
   }, []);
   return (
