@@ -12,12 +12,13 @@ import {
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 
-export const roboto = Roboto({
+const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
-  variable: "--font-roboto", // <- để dùng với tailwind
+  variable: "--font-roboto",
   display: "swap",
 });
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair-sc",
@@ -31,14 +32,14 @@ const jakarta = Plus_Jakarta_Sans({
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", // dùng với className tailwind
+  variable: "--font-inter",
   display: "swap",
 });
 
-export const lexendExa = Lexend_Exa({
+const lexendExa = Lexend_Exa({
   subsets: ["latin"],
-  variable: "--font-lexend-exa", // để dùng class tailwind nếu muốn
-  weight: ["400", "500", "600", "700"], // thêm các độ đậm cần dùng
+  variable: "--font-lexend-exa",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -48,30 +49,30 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${roboto.variable} ${lexendExa?.variable} ${inter?.variable} ${jakarta.variable} antialiased`}
+        className={`${playfair.variable} ${roboto.variable} ${lexendExa.variable} ${inter.variable} ${jakarta.variable} antialiased`}
       >
         <LanguageLoader />
         <Toaster position="top-right" reverseOrder={false} />
         {children}
 
-        {/* <!-- Google tag (gtag.js) --> */}
+        {/* Google Analytics */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-3DK4DTG5KH"
-        ></Script>
+        />
         <Script id="ga-init" strategy="afterInteractive">
           {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-3DK4DTG5KH');
-              `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3DK4DTG5KH');
+          `}
         </Script>
       </body>
     </html>
