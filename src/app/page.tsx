@@ -13,10 +13,21 @@ import StaffSection from "@/components/modules/home/StaffSection";
 import CuisineSection from "@/components/modules/home/CuisineSection";
 import Footer from "@/components/modules/common/Footer";
 import ChatbotButton from "@/components/modules/common/ChatboxButton";
+import { useEffect } from "react";
+import { logEvent } from "@/lib/ga4";
 
 export default async function Home() {
   const i18n = await initI18n("vi");
   const t = i18n.getFixedT("vi");
+
+  useEffect(() => {
+    logEvent("message_sent", {
+      content_length: 1,
+      platform: 12321321,
+      device: "destop",
+      has_conversation: `abcd`,
+    });
+  }, []);
   return (
     <div>
       <HeaderHomePage />
